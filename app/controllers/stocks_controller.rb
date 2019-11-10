@@ -1,6 +1,6 @@
 class StocksController < ApplicationController
   def index
-    @stocks = Stock.all
+    @stocks = Stock.all.order(:name)
   end
 
   def new
