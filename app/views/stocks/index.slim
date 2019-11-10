@@ -1,0 +1,23 @@
+row
+  title Stocks
+  table.table
+    thead
+      tr
+        th Number
+        th Name
+        th Phone
+        th Action
+    tbody
+      - @stocks.each do |stock|
+        tr
+          td
+            = stock.number
+          td
+            = stock.name
+          td
+            = stock.phone
+          td
+            = link_to 'edit', edit_stock_path(stock)
+            br
+            = link_to 'delete', stock_path(stock), method: :delete
+  = button_to 'Add new stock', new_stock_path, method: :get

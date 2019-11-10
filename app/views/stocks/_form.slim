@@ -1,0 +1,6 @@
+= simple_form_for(:stock, url: url, method: method) do |f|
+  = f.input :number
+  = f.input :name
+  = f.input :phone
+  = f.full_error :token
+  = f.button :submit
