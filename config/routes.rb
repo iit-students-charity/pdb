@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   resources :stocks
   resources :work_equipments
+  resources :waybills
 end

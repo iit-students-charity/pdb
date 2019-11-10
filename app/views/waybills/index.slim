@@ -1,0 +1,31 @@
+= render 'navigation'
+row
+  h2 Inventory Cards
+  p List of all Inventory Cards
+  table.table
+    thead
+      tr
+        th Date
+        th Host's name
+        th Host's position
+        th Type
+        th Stock number
+        th Action
+    tbody
+      - @waybills.each do |waybill|
+        tr
+          td
+            = waybill.date
+          td
+            = waybill.host_name
+          td
+            = waybill.host_position
+          td
+            = waybill.waybill_type
+          td
+            = waybill.stock.number
+          td
+            = link_to 'edit', edit_waybill_path(waybill)
+            br
+            = link_to 'delete', waybill_path(waybill), method: :delete
+  = button_to 'Add new work equipment', new_waybill_path, method: :get
