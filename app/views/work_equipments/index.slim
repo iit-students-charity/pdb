@@ -1,0 +1,19 @@
+= render 'navigation'
+row
+  h2 Work Equipments
+  p List of all Work Equipments
+  table.table
+    thead
+      tr
+        th Type
+        th Action
+    tbody
+      - @work_equipments.each do |work_equipment|
+        tr
+          td
+            = work_equipment.work_equipment_type
+          td
+            = link_to 'edit', edit_work_equipment_path(work_equipment)
+            br
+            = link_to 'delete', work_equipment_path(work_equipment), method: :delete
+  = button_to 'Add new work equipment', new_work_equipment_path, method: :get

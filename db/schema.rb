@@ -30,15 +30,13 @@ ActiveRecord::Schema.define(version: 2019_11_10_154200) do
     t.datetime "date"
     t.string "host_name"
     t.integer "host_position", null: false
-    t.integer "type", null: false
+    t.integer "waybill_type", null: false
     t.bigint "stock_id"
     t.index ["stock_id"], name: "index_waybills_on_stock_id"
   end
 
   create_table "work_equipments", force: :cascade do |t|
-    t.integer "type", null: false
-    t.bigint "stock_id"
-    t.index ["stock_id"], name: "index_work_equipments_on_stock_id"
+    t.string "work_equipment_type", null: false
   end
 
 end

@@ -4,7 +4,7 @@ class CreateWaybill < ActiveRecord::Migration[5.2]
       t.datetime :date
       t.string :host_name
       t.integer :host_position, null: false
-      t.integer :type, null: false
+      t.integer :waybill_type, null: false
       t.references :stock
     end
   end

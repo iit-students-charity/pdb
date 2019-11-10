@@ -1,7 +1,7 @@
 class Waybill < ApplicationRecord
   has_many :work_equipments
 
-  enum type: {
+  enum waybill_type: {
     purchase_invoice: 0,
     sales_invoice: 1
   }
