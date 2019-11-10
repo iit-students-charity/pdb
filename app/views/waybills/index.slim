@@ -6,6 +6,7 @@ row
     thead
       tr
         th Date
+        th Inventory type
         th Host's name
         th Host's position
         th Type
@@ -15,7 +16,9 @@ row
       - @waybills.each do |waybill|
         tr
           td
-            = waybill.date
+            = waybill.inventory_card&.date || ''
+          td
+            = waybill.inventory_card&.count || ''
           td
             = waybill.host_name
           td
@@ -23,9 +26,13 @@ row
           td
             = waybill.waybill_type
           td
-            = waybill.stock.number
+            - waybill.stock.each do |stock|
+              = stock.number
+              br
           td
             = link_to 'edit', edit_waybill_path(waybill)
             br
             = link_to 'delete', waybill_path(waybill), method: :delete
+            br
+            = link_to 'check in stores', waybill_path(waybill)
   = button_to 'Add new work equipment', new_waybill_path, method: :get

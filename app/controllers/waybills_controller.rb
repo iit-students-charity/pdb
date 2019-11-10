@@ -29,7 +29,13 @@ class WaybillsController < ApplicationController
   private
 
   def waybill_params
-    params.require(:waybill).permit(:date, :host_name, :host_position, :waybill_type, :stock_id)
+    params.require(:waybill)
+          .permit(:date,
+                  :host_name,
+                  :host_position,
+                  :waybill_type,
+                  stock_ids: [],
+                  inventory_card_attributes: %i[id date count work_equipment_ids])
   end
 
   def waybill

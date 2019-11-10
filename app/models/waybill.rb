@@ -1,9 +1,10 @@
 class Waybill < ApplicationRecord
-  belongs_to :stock
+  has_and_belongs_to_many :stock, required: false
 
-  has_many :work_equipments
+  has_one :inventory_card
 
   accepts_nested_attributes_for :stock
+  accepts_nested_attributes_for :inventory_card
 
   enum waybill_type: {
     purchase_invoice: 0,

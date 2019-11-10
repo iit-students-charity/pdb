@@ -1,7 +1,10 @@
 = simple_form_for(@waybill, url: url, method: method) do |f|
-  = f.input :date, as: :string, input_html: { value: Date.today }
   = f.input :host_name
   = f.input :host_position, collection: Waybill.host_positions.keys, as: :radio_buttons
   = f.input :waybill_type, collection: Waybill.waybill_types.keys, as: :radio_buttons
-  = f.association :stock, collection: Stock.all.order(:name), prompt: "Choose a Stock"
+  = f.association :stock, collection: Stock.all.order(:name), include_blank: false, include_hidden: false
+  = f.simple_fields_for :inventory_card do |inventory_card|
+    = render 'inventory_card', f: inventory_card
+  .links
+    = link_to_add_association 'add task', f, :inventory_card
   = f.button :submit
