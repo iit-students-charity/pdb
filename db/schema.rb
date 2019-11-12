@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_152342) do
+ActiveRecord::Schema.define(version: 2019_11_12_122514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,17 +30,12 @@ ActiveRecord::Schema.define(version: 2019_11_11_152342) do
     t.string "phone", null: false
   end
 
-  create_table "stocks_waybills", force: :cascade do |t|
-    t.bigint "waybill_id"
-    t.bigint "stock_id"
-    t.index ["stock_id"], name: "index_stocks_waybills_on_stock_id"
-    t.index ["waybill_id"], name: "index_stocks_waybills_on_waybill_id"
-  end
-
   create_table "waybills", force: :cascade do |t|
     t.string "host_name"
     t.integer "host_position", null: false
     t.integer "waybill_type", null: false
+    t.bigint "stock_id"
+    t.index ["stock_id"], name: "index_waybills_on_stock_id"
   end
 
   create_table "work_equipments", force: :cascade do |t|

@@ -2,9 +2,11 @@
   = f.input :host_name
   = f.input :host_position, collection: Waybill.host_positions.keys, as: :radio_buttons
   = f.input :waybill_type, collection: Waybill.waybill_types.keys, as: :radio_buttons
-  = f.association :stock, collection: Stock.all.order(:name), include_blank: false, include_hidden: false
+  = f.label :stock
+  br
+  = f.collection_select :stock_id, Stock.all.order(:name), :id, :name
   = f.simple_fields_for :inventory_card do |inventory_card|
     = render 'inventory_card', f: inventory_card
   .links
-    = link_to_add_association 'add task', f, :inventory_card
+    = link_to_add_association 'add inventory cart description', f, :inventory_card
   = f.button :submit

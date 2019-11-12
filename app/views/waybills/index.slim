@@ -29,9 +29,7 @@ row
           td
             = waybill.waybill_type
           td
-            - waybill.stock.each do |stock|
-              = stock.number
-              br
+            = waybill.stock.number
           td
             = link_to 'edit', edit_waybill_path(waybill)
             br

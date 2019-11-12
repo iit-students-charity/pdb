@@ -1,5 +1,5 @@
 class Waybill < ApplicationRecord
-  has_and_belongs_to_many :stock, required: false
+  belongs_to :stock
 
   has_one :inventory_card
 

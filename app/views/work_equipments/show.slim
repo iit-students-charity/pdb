@@ -42,3 +42,20 @@ row
             = card.work_equipment.work_equipment_type
           td
             = card.count
+  br
+  h3 Count Equipments in Stocks
+  table.table
+    thead
+      tr
+        th Stock Name
+        th Equipment Type
+        th Count
+    tbody
+      - Stock.all.each do |stock|
+        tr
+          td
+            = stock.name
+          td
+            = @work_equipment.work_equipment_type
+          td
+            = stock.number_in_stock(@work_equipment)
