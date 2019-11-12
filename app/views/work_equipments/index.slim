@@ -16,4 +16,6 @@ row
             = link_to 'edit', edit_work_equipment_path(work_equipment)
             br
             = link_to 'delete', work_equipment_path(work_equipment), method: :delete
+            br
+            = link_to 'check in stores', work_equipment_path(work_equipment)
   = button_to 'Add new work equipment', new_work_equipment_path, method: :get

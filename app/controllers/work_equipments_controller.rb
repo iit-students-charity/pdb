@@ -26,6 +26,12 @@ class WorkEquipmentsController < ApplicationController
     redirect_to work_equipments_path
   end
 
+  def show
+    @inventory_cards = work_equipment.inventory_cards
+    @purchased_inventory_cards = @inventory_cards.joins(:waybill).where(waybills: { waybill_type: :purchase })
+    @sales_inventory_cards = @inventory_cards.joins(:waybill).where(waybills: { waybill_type: :sales })
+  end
+
   private
 
   def work_equipment_params

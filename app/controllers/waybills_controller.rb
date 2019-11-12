@@ -35,7 +35,7 @@ class WaybillsController < ApplicationController
                   :host_position,
                   :waybill_type,
                   stock_ids: [],
-                  inventory_card_attributes: %i[id date count work_equipment_ids])
+                  inventory_card_attributes: %i[id date count work_equipment_id])
   end
 
   def waybill

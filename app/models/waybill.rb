@@ -7,8 +7,8 @@ class Waybill < ApplicationRecord
   accepts_nested_attributes_for :inventory_card
 
   enum waybill_type: {
-    purchase_invoice: 0,
-    sales_invoice: 1
+    purchase: 0,
+    sales: 1
   }
 
   enum host_position: {

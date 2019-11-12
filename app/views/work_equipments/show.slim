@@ -1,0 +1,44 @@
+= render 'navigation'
+row
+  h2 Work Equipments
+  p List of all waybills for #{@work_equipment.work_equipment_type}
+  br
+  h3 Purchase waybills
+  table.table
+    thead
+      tr
+        th Stock Name
+        th Date
+        th Equipment Type
+        th Count
+    tbody
+      - @purchased_inventory_cards.each do |card|
+        tr
+          td
+            = card.waybill.stock.name
+          td
+            = card.date
+          td
+            = card.work_equipment.work_equipment_type
+          td
+            = card.count
+  br
+  h3 Sales waybills
+  table.table
+    thead
+      tr
+        th Stock Name
+        th Date
+        th Equipment Type
+        th Count
+    tbody
+      - @sales_inventory_cards.each do |card|
+        tr
+          td
+            = card.waybill.stock.name
+          td
+            = card.date
+          td
+            = card.work_equipment.work_equipment_type
+          td
+            = card.count

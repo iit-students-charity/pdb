@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_10_204513) do
+ActiveRecord::Schema.define(version: 2019_11_11_152342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,9 @@ ActiveRecord::Schema.define(version: 2019_11_10_204513) do
     t.datetime "date"
     t.integer "count"
     t.bigint "waybill_id"
+    t.bigint "work_equipment_id"
     t.index ["waybill_id"], name: "index_inventory_cards_on_waybill_id"
+    t.index ["work_equipment_id"], name: "index_inventory_cards_on_work_equipment_id"
   end
 
   create_table "stocks", force: :cascade do |t|
