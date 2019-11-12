@@ -27,9 +27,9 @@ class WorkEquipmentsController < ApplicationController
   end
 
   def show
-    @inventory_cards = work_equipment.inventory_cards
-    @purchased_inventory_cards = @inventory_cards.joins(:waybill).where(waybills: { waybill_type: :purchase })
-    @sales_inventory_cards = @inventory_cards.joins(:waybill).where(waybills: { waybill_type: :sales })
+    @inventory_cards = work_equipment.inventory_cards.joins(:waybill)
+    @purchased_inventory_cards = @inventory_cards.where(waybills: { waybill_type: :purchase })
+    @sales_inventory_cards = @inventory_cards.where(waybills: { waybill_type: :sales })
   end
 
   private
