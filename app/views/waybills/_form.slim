@@ -6,7 +6,8 @@
   br
   = f.collection_select :stock_id, Stock.all.order(:name), :id, :name
   = f.simple_fields_for :inventory_card do |inventory_card|
-    = render 'inventory_card', f: inventory_card
+    = render 'inventory_card_fields', f: inventory_card
   .links
-    = link_to_add_association 'add inventory cart description', f, :inventory_card
+    - if !@waybill.inventory_card
+      = link_to_add_association 'add inventory cart description', f, :inventory_card
   = f.button :submit
